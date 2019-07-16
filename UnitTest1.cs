@@ -5,13 +5,13 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace UnitTestProject1
+namespace rwbyTestProject
 {
     [TestClass]
-    public class UnitTest1
+    public class rwbyTestMain
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Main()
         {
             RemoteWebDriver Driver = new ChromeDriver();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
@@ -19,14 +19,22 @@ namespace UnitTestProject1
 
             Driver.Navigate().GoToUrl(@"http://google.com");
             var targetElement = Driver.FindElement(By.CssSelector("input[aria-label='Search']"));
-            // var targetElement = Driver.FindElementByCssSelector("input[aria-label='Search']"); // Похоже, что то же само
+            // var targetElement = Driver.FindElementByCssSelector("input[aria-label='Search']"); // It appears that it's the same as line above
 
             targetElement.SendKeys("rw.by");
          
-            //targetElement.Submit();   // Это тоже как Enter, но попробуем найти кнопку и нажать на нее
+            //targetElement.Submit();   // it's like PRESS ENTER, but let's try another option:
             var searchInGoogleButton = Driver.FindElementByCssSelector("center > input[value*='Google']");
             searchInGoogleButton.Click();
-            
+
+            var rwByLink = Driver.FindElementByCssSelector("a[href = 'https://www.rw.by/'] ");
+            rwByLink.Click();
+
+            // Need to make sure that the Page has been loaded fine
+            // But before, I'd try to create another class, thereby realize PageObject or something
+
+            rwbyMainPage mainPage = new rwbyMainPage(Driver);
+            mainPage.ClickSearchFromBar();
         }
     }
 }

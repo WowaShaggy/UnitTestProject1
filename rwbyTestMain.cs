@@ -32,9 +32,13 @@ namespace rwbyTestProject
 
             // Need to make sure that the Page has been loaded fine
             // But before, I'd try to create another class, thereby realize PageObject or something
+            // Let's check presence of several page objects
 
             rwbyMainPage mainPage = new rwbyMainPage(Driver);
-            mainPage.ClickSearchFromBar();
+
+            NUnit.Framework.Assert.IsTrue(mainPage.MainPageIsDownloaded()); // Strange Strange Assert. Not sure that it should be so..
+
+            Driver.Quit();
         }
     }
 }

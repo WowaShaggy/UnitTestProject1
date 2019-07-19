@@ -32,9 +32,13 @@ namespace rwbyTestProject
 
             // Need to make sure that the Page has been loaded fine
             // But before, I'd try to create another class, thereby realize PageObject or something
+            // Let's check presence of several page objects
 
-            var SearchBarFrom = Driver.FindElement(rwbyMainPage.SearchBarFrom);
-            SearchBarFrom.Click();
+            rwbyMainPage mainPage = new rwbyMainPage(Driver);
+
+            NUnit.Framework.Assert.IsTrue(mainPage.MainPageIsDownloaded());
+
+            Driver.Quit();
         }
     }
 }

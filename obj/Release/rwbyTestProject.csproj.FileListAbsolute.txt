@@ -1,7 +1,6 @@
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\UnitTest1.cs
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\UnitTestProject1.dll
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\UnitTestProject1.pdb
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
@@ -17,3 +16,7 @@ C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\rwbyTestProj
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\rwbyTestProject.csproj.CopyComplete
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\UnitTestProject1.dll
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\UnitTestProject1.pdb
+C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\rwbyTestMain.cs
+C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\nunit.framework.dll
+C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\nunit.framework.pdb
+C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\nunit.framework.xml

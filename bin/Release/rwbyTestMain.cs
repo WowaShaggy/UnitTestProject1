@@ -36,7 +36,12 @@ namespace rwbyTestProject
 
             rwbyMainPage mainPage = new rwbyMainPage(Driver);
 
-            NUnit.Framework.Assert.IsTrue(mainPage.MainPageIsDownloaded());
+            NUnit.Framework.Assert.IsTrue(mainPage.MainPageIsDownloaded()); // Strange Strange Assert. Not sure that it should be so..
+            NUnit.Framework.Assert.IsTrue(mainPage.MainPageLanguageIsDownloaded());
+
+            // Switch language
+
+            NUnit.Framework.Assert.IsTrue(mainPage.ChangeLanguageToEnglish());
 
             Driver.Quit();
         }

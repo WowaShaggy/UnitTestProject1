@@ -14,26 +14,53 @@ namespace rwbyTestProject
 
         RemoteWebDriver Driver;
 
-        public rwbyMainPage(RemoteWebDriver Driver) {
-             this.Driver = Driver;
+        public rwbyMainPage(RemoteWebDriver Driver)
+        {
+            this.Driver = Driver;
         }
 
-       static public By SearchFromBar = By.Name("trvain_from");
-       static public By SearchToBar = By.Name("train_to");
-       static public By MenuBar = By.Id("main_menu");
-        
-        public bool MainPageIsDownloaded() {
+        static public By SearchFromBar = By.Name("train_from");
+        static public By SearchToBar = By.Name("train_to");
+        static public By MenuBar = By.Id("main_menu");
+        static public By Language = By.ClassName("langText"); //display none/ block
+        static public By LanguageEn = By.XPath("//ul[contains(@class, 'lang-select')]/li/a[contains(@href, '/en/')]"); 
+
+        public bool MainPageIsDownloaded()
+        {
             try
             {
                 Driver.FindElement(SearchFromBar);
                 Driver.FindElement(SearchToBar);
                 Driver.FindElement(MenuBar);
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 MessageBox.Show("Error!!! One of elements hasn't been found!!!");
                 return false;
-            } 
+            }
             return true;
+        }
+
+        public bool MainPageLanguageIsDownloaded()
+        {
+            return (Driver.FindElement(Language).GetAttribute("display") != "none");
+        }
+
+        public bool ChangeLanguageToEnglish()
+        {
+            try
+            {
+                Driver.FindElement(Language).Click();
+                Driver.FindElement(LanguageEn).Click();
+                return (Driver.Url.Contains("en") == true);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something goes wrong");
+                return false;
+            }
+            return true;
+
         }
     }
 }

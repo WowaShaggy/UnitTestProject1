@@ -11,7 +11,6 @@ C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\Microsoft.Vi
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\WebDriver.xml
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\WebDriver.Support.xml
-C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\rwbyTestProject.csprojAssemblyReference.cache
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\rwbyTestProject.csproj.CoreCompileInputs.cache
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\rwbyTestProject.csproj.CopyComplete
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\UnitTestProject1.dll
@@ -20,3 +19,4 @@ C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\rwbyTestMain
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\nunit.framework.dll
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\nunit.framework.pdb
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\nunit.framework.xml
+C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\rwbyTestProject.csprojAssemblyReference.cache

@@ -40,8 +40,10 @@ namespace rwbyTestProject
             NUnit.Framework.Assert.IsTrue(mainPage.MainPageLanguageIsDownloaded());
 
             // Switch language
-
             NUnit.Framework.Assert.IsTrue(mainPage.ChangeLanguageToEnglish());
+
+            //NUmber of news = 6
+            Assert.AreEqual(mainPage.NumberOfNews(), 6);
 
             Driver.Quit();
         }

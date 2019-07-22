@@ -22,8 +22,9 @@ namespace rwbyTestProject
         static public By SearchFromBar = By.Name("train_from");
         static public By SearchToBar = By.Name("train_to");
         static public By MenuBar = By.Id("main_menu");
-        static public By Language = By.ClassName("langText"); //display none/ block
-        static public By LanguageEn = By.XPath("//ul[contains(@class, 'lang-select')]/li/a[contains(@href, '/en/')]"); 
+        static public By Language = By.ClassName("langText");
+        static public By LanguageEn = By.XPath("//ul[contains(@class, 'lang-select')]/li/a[contains(@href, '/en/')]");
+        static public By NewsList = By.XPath("//div[@class='index-news-list']/dl/dt");
 
         public bool MainPageIsDownloaded()
         {
@@ -59,8 +60,11 @@ namespace rwbyTestProject
                 MessageBox.Show("Something goes wrong");
                 return false;
             }
-            return true;
 
+        }
+
+        public int NumberOfNews() {
+            return Driver.FindElements(NewsList).Count();
         }
     }
 }

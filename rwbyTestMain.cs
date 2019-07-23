@@ -3,7 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+using System.Globalization;
+using System.Linq;
 
 namespace rwbyTestProject
 {
@@ -36,16 +37,25 @@ namespace rwbyTestProject
 
             rwbyMainPage mainPage = new rwbyMainPage(Driver);
 
-            NUnit.Framework.Assert.IsTrue(mainPage.MainPageIsDownloaded()); // Strange Strange Assert. Not sure that it should be so..
-            NUnit.Framework.Assert.IsTrue(mainPage.MainPageLanguageIsDownloaded());
+            Assert.IsTrue(mainPage.MainPageIsDownloaded()); 
+            Assert.IsTrue(mainPage.MainPageLanguageIsDownloaded());
 
             // Switch language
-            NUnit.Framework.Assert.IsTrue(mainPage.ChangeLanguageToEnglish());
+            Assert.IsTrue(mainPage.ChangeLanguageToEnglish());
 
-            //NUmber of news = 6
-            Assert.AreEqual(mainPage.NumberOfNews(), 6);
+            //Number of news = 6
+            Assert.AreEqual(6, mainPage.NumberOfNews());
+
+            //Check text “© 2019 Belarusian Railway"
+            Assert.AreEqual($"© {DateTime.Now.Year} Belarusian Railway", mainPage.GetCopyrightText());
+
+            // Presence of “Timetable”, “Passenger Services”, “Freight”, “Corporate” in top menu
+            string [] expectedResultsArray = new string[] {"Timetable", "Passenger Services", "Corporate", "Freight"};
+            string [] actualResultArray = (string[]) mainPage.GetTopMenuItems().Clone();
+            Assert.IsTrue(expectedResultsArray.Intersect(actualResultArray).Count() == expectedResultsArray.Length);
 
             Driver.Quit();
-        }
+            
+         }
     }
 }

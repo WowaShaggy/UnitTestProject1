@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,9 @@ namespace rwbyTestProject
         static public By Language = By.ClassName("langText");
         static public By LanguageEn = By.XPath("//ul[contains(@class, 'lang-select')]/li/a[contains(@href, '/en/')]");
         static public By NewsList = By.XPath("//div[@class='index-news-list']/dl/dt");
+        static public By Copyright = By.ClassName("copyright");
+        static public By TopMenuItems = By.XPath("//table[@class='menu-items']/tbody/tr/td");
+
 
         public bool MainPageIsDownloaded()
         {
@@ -66,5 +70,24 @@ namespace rwbyTestProject
         public int NumberOfNews() {
             return Driver.FindElements(NewsList).Count();
         }
+
+        public string GetCopyrightText() {
+            string fullText = Driver.FindElement(Copyright).Text;
+            int ind = fullText.IndexOf('\r');
+            return fullText.Remove(ind);
+        }
+
+        public string [] GetTopMenuItems() {
+            TextInfo tI = new CultureInfo("en-US", false).TextInfo;
+            int i = 0;
+            int count = Driver.FindElements(TopMenuItems).Count;
+            string[] array = new string[count];
+             while (i < count) {
+                array[i] = tI.ToTitleCase(Driver.FindElementByXPath($"//table[@class='menu-items']/tbody/tr/td[{i+1}]/a/em/u/b").Text.ToLower());
+                i++;
+             }
+            return array;
+        }
     }
 }
+

@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rwbyTestProject", "rwbyTestProject.csproj", "{77DD957A-DC4D-4D95-952B-C967F958D55F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pageObjects", "pageObjects.csproj", "{77DD957A-DC4D-4D95-952B-C967F958D55F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "workWithMainPage", "..\workWithMainPage\workWithMainPage.csproj", "{5B207AAE-2DB5-4A5E-B37D-4F3D8ADB0FDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "openFromGoogle", "..\openFromGoogle\openFromGoogle.csproj", "{E89CBE8A-DDAB-4233-8A8B-D900F14A39E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{77DD957A-DC4D-4D95-952B-C967F958D55F}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{77DD957A-DC4D-4D95-952B-C967F958D55F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77DD957A-DC4D-4D95-952B-C967F958D55F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B207AAE-2DB5-4A5E-B37D-4F3D8ADB0FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B207AAE-2DB5-4A5E-B37D-4F3D8ADB0FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B207AAE-2DB5-4A5E-B37D-4F3D8ADB0FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B207AAE-2DB5-4A5E-B37D-4F3D8ADB0FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E89CBE8A-DDAB-4233-8A8B-D900F14A39E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E89CBE8A-DDAB-4233-8A8B-D900F14A39E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E89CBE8A-DDAB-4233-8A8B-D900F14A39E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E89CBE8A-DDAB-4233-8A8B-D900F14A39E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

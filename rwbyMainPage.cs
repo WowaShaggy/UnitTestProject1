@@ -1,23 +1,20 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
-namespace rwbyTestProject
+namespace pageObjects
 {
-    public class rwbyMainPage
+    public class RwbyMainPage
     {
 
         RemoteWebDriver Driver;
 
-        public rwbyMainPage(RemoteWebDriver Driver)
+        public RwbyMainPage(RemoteWebDriver Driver)
         {
-            this.Driver = Driver;
+           this.Driver = Driver;
         }
 
         static public By SearchFromBar = By.Name("train_from");

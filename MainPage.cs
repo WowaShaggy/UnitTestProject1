@@ -7,12 +7,12 @@ using System.Windows;
 
 namespace pageObjects
 {
-    public class RwbyMainPage
+    public class MainPage
     {
 
         RemoteWebDriver Driver;
 
-        public RwbyMainPage(RemoteWebDriver Driver)
+        public MainPage(RemoteWebDriver Driver)
         {
            this.Driver = Driver;
         }
@@ -25,6 +25,8 @@ namespace pageObjects
         static public By NewsList = By.XPath("//div[@class='index-news-list']/dl/dt");
         static public By Copyright = By.ClassName("copyright");
         static public By TopMenuItems = By.XPath("//table[@class='menu-items']/tbody/tr/td");
+        static public By SearchBySiteBar = By.Name("search");
+        static public By NotFoundLebel = By.ClassName("result");
 
 
         public bool MainPageIsDownloaded()
@@ -84,6 +86,11 @@ namespace pageObjects
                 i++;
              }
             return array;
+        }
+
+        public void TypeInSearchBar(string searchText) {
+            Driver.FindElement(SearchBySiteBar).SendKeys(searchText);
+            Driver.FindElement(SearchBySiteBar).Submit();
         }
     }
 }

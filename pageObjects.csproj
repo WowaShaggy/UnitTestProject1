@@ -9,8 +9,8 @@
     <ProjectGuid>{77DD957A-DC4D-4D95-952B-C967F958D55F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTestProject1</RootNamespace>
-    <AssemblyName>UnitTestProject1</AssemblyName>
+    <RootNamespace>pageObjects</RootNamespace>
+    <AssemblyName>pageObjects</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -68,7 +68,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RwbyMainPage.cs" />
+    <Compile Include="SearchPage.cs" />
+    <Compile Include="MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

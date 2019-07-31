@@ -18,3 +18,4 @@ C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\pageObjects.
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\bin\Release\pageObjects.pdb
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\pageObjects.dll
 C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\pageObjects.pdb
+C:\Users\Uladzimir_Papeka\source\repos\UnitTestProject1\obj\Release\pageObjects.csprojAssemblyReference.cache

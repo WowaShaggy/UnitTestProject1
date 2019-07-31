@@ -27,7 +27,11 @@ namespace pageObjects
         static public By TopMenuItems = By.XPath("//table[@class='menu-items']/tbody/tr/td");
         static public By SearchBySiteBar = By.Name("search");
         static public By NotFoundLebel = By.ClassName("result");
-
+        static public By CalendarButton = By.ClassName("calendar");
+        static public By CalendarTrElements = By.XPath("//table[@class='ui-datepicker-calendar']/tbody/tr");
+        static public By CalendarNextArrow = By.XPath("//div[@id='ui-datepicker-div']/div/a[2]/span");
+        static public By TodayLevel = By.XPath("//div[@class='hint']/a[1]");
+        static public By SearchButton = By.Id("find-rout");
 
         public bool MainPageIsDownloaded()
         {
@@ -92,6 +96,71 @@ namespace pageObjects
             Driver.FindElement(SearchBySiteBar).SendKeys(searchText);
             Driver.FindElement(SearchBySiteBar).Submit();
         }
+
+        public void EnterFromAndToLocations(string locationFrom, string locationTo)
+        {
+            Driver.FindElement(SearchFromBar).Clear();
+            Driver.FindElement(SearchToBar).Clear();
+            Driver.FindElement(SearchFromBar).SendKeys(locationFrom);
+            Driver.FindElement(SearchToBar).SendKeys(locationTo);
+        }
+
+        public void ChooseDayInCalendarIn(int day)
+        {
+            Driver.FindElement(CalendarButton).Click();
+            int NumberOfLines = Driver.FindElements(CalendarTrElements).Count;
+            By [,] CalendarArray = new By [7, NumberOfLines];
+            int dayOfInterest = DateTime.Today.Day + day;
+            if (dayOfInterest <= DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month))
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    for (int ii = 0; ii < NumberOfLines; ii++)
+                    {
+                        CalendarArray[i, ii] = By.XPath($"//table[@class='ui-datepicker-calendar']/tbody/tr[{i + 1}]/td[{ii + 1}]");
+                        string indexDay = Driver.FindElementByXPath($"//table[@class='ui-datepicker-calendar']/tbody/tr[{i + 1}]/td[{ii + 1}]").Text;
+                        if (Int32.Parse(indexDay) == dayOfInterest)
+                        {
+                            Driver.FindElementByXPath($"//table[@class='ui-datepicker-calendar']/tbody/tr[{i + 1}]/td[{ii + 1}]").Click();
+                        }
+                    }
+                }
+
+            }
+            else 
+            {   // I decided do not consider the case, when the necessary date is in the other year
+                for (int m = 1; DateTime.Today.Month + m <= 12; m++)
+                {
+                    dayOfInterest = dayOfInterest - DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month + (m-1));
+                    Driver.FindElement(CalendarNextArrow).Click();
+                    NumberOfLines = Driver.FindElements(CalendarTrElements).Count;
+                    CalendarArray = new By[7, NumberOfLines];
+                    if (DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month + m) >= dayOfInterest)
+                    {
+                        for (int i = 0; i < 7; i++)
+                        {
+                            for (int ii = 0; ii < NumberOfLines; ii++)
+                            {
+                                CalendarArray[i, ii] = By.XPath($"//table[@class='ui-datepicker-calendar']/tbody/tr[{i + 1}]/td[{ii + 1}]");
+                                string indexDay = Driver.FindElementByXPath($"//table[@class='ui-datepicker-calendar']/tbody/tr[{i + 1}]/td[{ii + 1}]").Text;
+                                Int32.TryParse(indexDay, out int indexDayInt);
+                                if (indexDayInt == dayOfInterest)
+                                {
+                                    Driver.FindElementByXPath($"//table[@class='ui-datepicker-calendar']/tbody/tr[{i + 1}]/td[{ii + 1}]").Click();
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        public void ClickSearch() {
+            Driver.FindElement(SearchButton).Click();
+        }
+
     }
 }
 

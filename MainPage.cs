@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Globalization;
@@ -32,9 +33,15 @@ namespace pageObjects
         static public By CalendarNextArrow = By.XPath("//div[@id='ui-datepicker-div']/div/a[2]/span");
         static public By TodayLevel = By.XPath("//div[@class='hint']/a[1]");
         static public By SearchButton = By.Id("find-rout");
+        static public By ScheduleListelements = By.XPath("//tbody[@class='schedule_list']/tr");
+        static public By ScheduleListFirstResult = By.XPath("//tbody[@class='schedule_list']/tr[1]//a[@class='train_text']");
+        static public By RouteName = By.ClassName("page-title_heading");
+        static public By CalendarDescription = By.ClassName("calendar_description");
+        static public By Logo = By.ClassName("logo_link");
 
         public bool MainPageIsDownloaded()
         {
+
             try
             {
                 Driver.FindElement(SearchFromBar);
@@ -48,6 +55,7 @@ namespace pageObjects
             }
             return true;
         }
+
 
         public bool MainPageLanguageIsDownloaded()
         {
@@ -159,6 +167,37 @@ namespace pageObjects
 
         public void ClickSearch() {
             Driver.FindElement(SearchButton).Click();
+        }
+
+        public string WriteToConsoleSchedule() {
+            int i = 0;
+            int count = Driver.FindElements(ScheduleListelements).Count;
+            string array = "";
+            while (i < count)
+            {
+                array += Driver.FindElementByXPath($"//tbody[@class='schedule_list']/tr[{i + 1}]//a[@class='train_text']").Text;
+                array += "\t";
+                array += Driver.FindElementByXPath($"//tbody[@class='schedule_list']/tr[{i + 1}]/td[@class='train_item train_start']/b").Text;
+                array += "\n\n";
+                i++;
+            }
+            return array;
+        }
+
+        public void ClickOnTheFirstResult() {
+            Driver.FindElement(ScheduleListFirstResult).Click();
+        }
+
+        public bool CheckRouteIsDisplayed() {
+            return Driver.FindElement(RouteName).Displayed;
+        }
+
+        public string GetCalendarDescription() {
+            return Driver.FindElement(CalendarDescription).Text;
+        }
+
+        public void ClickLogo() {
+            Driver.FindElement(Logo).Click();
         }
 
     }

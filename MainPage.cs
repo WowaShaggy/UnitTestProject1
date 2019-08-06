@@ -18,6 +18,8 @@ namespace pageObjects
            this.Driver = Driver;
         }
 
+
+
         static public By SearchFromBar = By.Name("train_from");
         static public By SearchToBar = By.Name("train_to");
         static public By MenuBar = By.Id("main_menu");
@@ -34,7 +36,7 @@ namespace pageObjects
         static public By TodayLevel = By.XPath("//div[@class='hint']/a[1]");
         static public By SearchButton = By.Id("find-rout");
         static public By ScheduleListelements = By.XPath("//tbody[@class='schedule_list']/tr");
-        static public By ScheduleListFirstResult = By.XPath("//tbody[@class='schedule_list']/tr[1]//a[@class='train_text']");
+        static public By ScheduleListFirstResult = By.XPath("//tbody[@class='schedule_list']/tr[contains(@class, 'w_places') and not(contains(@class, 'started'))]//a[@class='train_text']");
         static public By RouteName = By.ClassName("page-title_heading");
         static public By CalendarDescription = By.ClassName("calendar_description");
         static public By Logo = By.ClassName("logo_link");

@@ -60,6 +60,22 @@ namespace pageObjects
             return array2;
         }
 
+        public string GenRandomString(int Length)
+        {
+            Random rnd = new Random();
+            StringBuilder sb = new StringBuilder(Length - 1);
+            char english, englishL;
+            char[] twoLetters;
+            for (int i = 0; i < Length; i++)
+            {
+                english = (char)rnd.Next(0x0041, 0x005A);
+                englishL = (char)rnd.Next(0x0061, 0x007A);
+                twoLetters = new char[] { english, englishL };
+                sb.Append(twoLetters[rnd.Next(twoLetters.Length)]);
+            }
+            return sb.ToString();
+        }
+
     }
 
 }

@@ -60,15 +60,26 @@ Scenario: Check Calendar function and find schedule
 	Then Console displays Schedule
 
 @calendar
+Scenario Outline: Check Outline Calendar function and find schedule
+	Given I am on rw.by page for calendar
+	When I enter Locations <from> and <to>
+	And  I choose day in calendar in 35
+	And I press Search Day button
+	Then Console displays Schedule
+	  Examples:
+    | from		| to		      |
+    | "Брест"   | "Оранчицы"      |
+    | "Брест"   | "Минск"	      |
+
+@calendar
 Scenario: Check schecule result
 	Given I am on schedule page for "Брест" and "Оранчицы" and date in 35
 	When I click on the first result
 	Then Route is displayed
 	And Calendar description isn't empty
-
 	
 @calendar
-Scenario: Logo returning
+Scenario: Check Logo returning
 	Given I am on schedule page for "Брест" and "Оранчицы" and date in 35
 	And  I click on the first result
 	When I click logo

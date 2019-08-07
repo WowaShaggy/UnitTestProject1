@@ -76,17 +76,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\openFromGoogle\OpenFromGoogleSiteSpecDefinition.cs">
-      <Link>OpenFromGoogleSiteSpecDefinition.cs</Link>
-    </Compile>
-    <Compile Include="..\..\workWithMainPage\WorkWithCalendarSpecdefinition.cs">
-      <Link>WorkWithCalendarSpecdefinition.cs</Link>
-    </Compile>
-    <Compile Include="..\..\workWithMainPage\WorkWithMainPageSpecdefenition.cs">
-      <Link>WorkWithMainPageSpecdefenition.cs</Link>
-    </Compile>
-    <Compile Include="..\..\workWithMainPage\WorkWithSearchPageSpecdefenition.cs">
-      <Link>WorkWithSearchPageSpecdefenition.cs</Link>
+    <Compile Include="..\StepDefenitions.cs">
+      <Link>StepDefenitions.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
